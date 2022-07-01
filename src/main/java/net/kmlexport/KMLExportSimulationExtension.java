@@ -12,9 +12,7 @@ public class KMLExportSimulationExtension extends AbstractSimulationExtension {
     @Override
     public void initialize(SimulationConditions simulationConditions) {
         log.error("Opening the kml export");
-
-        KMLExporter exporter = new KMLExporter();
-        exporter.generateSimulationKML(simulationConditions);
+        simulationConditions.getSimulationListenerList().add(new SimulationListener(simulationConditions));
     }
 
 }
